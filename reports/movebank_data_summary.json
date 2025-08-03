@@ -1,0 +1,39 @@
+{
+  "download_info": {
+    "timestamp": "2025-08-03T16:38:27.786215",
+    "source_url": "https://arctic-shoebird-migration.s3.us-east-1.amazonaws.com/Arctic+shorebird+migration+tracking+study+-+Semipalmated+Sandpiper.csv",
+    "local_file": "data\\movebank\\Arctic+shorebird+migration+tracking+study+-+Semipalmated+Sandpiper.csv"
+  },
+  "data_info": {
+    "total_records": 92,
+    "total_columns": 10,
+    "column_names": [
+      "event-id",
+      "visible",
+      "timestamp",
+      "location-long",
+      "location-lat",
+      "sensor-type",
+      "individual-taxon-canonical-name",
+      "tag-local-identifier",
+      "individual-local-identifier",
+      "study-name"
+    ],
+    "file_size_mb": 0.02
+  },
+  "migration_data_summary": {
+    "unique_individuals": 1,
+    "unique_species": 1,
+    "studies": 1,
+    "date_range": {
+      "start": "2017-07-09 15:00:06.000",
+      "end": "2018-01-11 12:00:07.000"
+    },
+    "location_range": {
+      "lat_min": 5.54439,
+      "lat_max": 70.27805,
+      "lon_min": -148.57889,
+      "lon_max": -53.30848
+    }
+  }
+}

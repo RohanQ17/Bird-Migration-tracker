@@ -1,0 +1,47 @@
+{
+  "analysis_timestamp": "20250803_163837",
+  "data_file": "data\\movebank\\Arctic+shorebird+migration+tracking+study+-+Semipalmated+Sandpiper.csv",
+  "total_records": 92,
+  "total_columns": 10,
+  "columns": [
+    "event-id",
+    "visible",
+    "timestamp",
+    "location-long",
+    "location-lat",
+    "sensor-type",
+    "individual-taxon-canonical-name",
+    "tag-local-identifier",
+    "individual-local-identifier",
+    "study-name"
+  ],
+  "individuals": 1,
+  "species": 1,
+  "studies": 1,
+  "location_data": {
+    "has_coordinates": true,
+    "lat_range": [
+      5.54439,
+      70.27805
+    ],
+    "lon_range": [
+      -148.57889,
+      -53.30848
+    ]
+  },
+  "data_quality": {
+    "missing_values": {
+      "event-id": 0,
+      "visible": 0,
+      "timestamp": 0,
+      "location-long": 0,
+      "location-lat": 0,
+      "sensor-type": 0,
+      "individual-taxon-canonical-name": 0,
+      "tag-local-identifier": 0,
+      "individual-local-identifier": 0,
+      "study-name": 0
+    },
+    "duplicate_records": 0
+  }
+}
