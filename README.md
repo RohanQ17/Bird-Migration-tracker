@@ -1,6 +1,6 @@
-# Migration Tracker
+# Bird Migration Tracker
 
-A comprehensive data science project for tracking and analyzing migration patterns.
+A comprehensive data science project for tracking and analyzing bird migration patterns. This project provides tools and workflows for analyzing avian migration data, including seasonal patterns, route analysis, and environmental factor correlations.
 
 ## Project Structure
 
@@ -47,25 +47,29 @@ Migration_Tracker/
 
 ### Usage
 
-1. Place your raw data in `data/raw/`
+1. Place your bird migration data in `data/raw/`
 2. Start with exploratory analysis in `notebooks/`
 3. Develop reusable code in `src/migration_tracker/`
 4. Run tests with `pytest tests/`
 
 ## Data Sources
 
-Document your data sources here:
-- Source 1: Description
-- Source 2: Description
+Suggested data sources for bird migration analysis:
+- eBird database (Cornell Lab of Ornithology)
+- BirdLife International migration data
+- Movebank animal tracking database
+- Weather and environmental data from NOAA
+- Breeding Bird Survey data
+- GPS tracking data from tagged birds
 
 ## Analysis Pipeline
 
-1. **Data Collection**: Scripts to gather migration data
-2. **Data Cleaning**: Preprocessing and validation
-3. **Exploratory Data Analysis**: Initial insights and patterns
-4. **Feature Engineering**: Creating meaningful variables
-5. **Modeling**: Statistical and ML models
-6. **Visualization**: Interactive dashboards and reports
+1. **Data Collection**: Scripts to gather bird migration and environmental data
+2. **Data Cleaning**: Preprocessing GPS coordinates, timestamps, and species data
+3. **Exploratory Data Analysis**: Migration route visualization and seasonal patterns
+4. **Feature Engineering**: Environmental variables, distance calculations, timing metrics
+5. **Modeling**: Migration route prediction, timing analysis, and species behavior models
+6. **Visualization**: Interactive maps, migration corridors, and seasonal dashboards
 
 ## Contributing
 
