@@ -1,0 +1,12 @@
+{
+  "Figures Directory": {
+    "species_champions_analysis.png": "Top species ranking by bird count with detailed population analysis",
+    "seasonal_migration_patterns.png": "Seasonal migration volume analysis with bar and pie charts",
+    "migration_routes_analysis.png": "Route analysis showing distance vs bird volume correlation"
+  },
+  "Visual Reports Directory": {
+    "executive_summary_dashboard.png": "Comprehensive executive summary with key metrics and trends",
+    "species_distribution_detailed.png": "Detailed species distribution with counts and percentages",
+    "comparative_analysis_matrix.png": "Multi-dimensional comparative analysis matrix"
+  }
+}
