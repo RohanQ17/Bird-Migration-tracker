@@ -57,10 +57,10 @@ def load_and_validate_data(filepath):
 def create_enhanced_migration_dashboard(data):
     """Create beautiful, colorful 6-panel migration analysis dashboard"""
     
-    # Create figure with better spacing
-    fig = plt.figure(figsize=(22, 18))
+    # Create figure with custom layout
+    fig = plt.figure(figsize=(20, 16))
     fig.suptitle('🐦 Arctic Shorebird Migration Analysis Dashboard\nSemipalmated Sandpiper Journey: Alaska → South America', 
-                 fontsize=18, fontweight='bold', y=0.95)
+                 fontsize=20, fontweight='bold', y=0.98)
     
     # Define colors
     colors = plt.cm.plasma(data['migration_progress'])
@@ -96,31 +96,31 @@ def create_enhanced_migration_dashboard(data):
     # Customize map
     ax1.set_xlim(data['location-long'].min() - 10, data['location-long'].max() + 10)
     ax1.set_ylim(data['location-lat'].min() - 5, data['location-lat'].max() + 5)
-    ax1.set_xlabel('Longitude (°W)', fontsize=11, fontweight='bold')
-    ax1.set_ylabel('Latitude (°N)', fontsize=11, fontweight='bold')
+    ax1.set_xlabel('Longitude (°W)', fontsize=12, fontweight='bold')
+    ax1.set_ylabel('Latitude (°N)', fontsize=12, fontweight='bold')
     ax1.set_title('🗺️ Complete Migration Route\n6,000+ Mile Epic Journey', 
-                  fontsize=12, fontweight='bold', pad=15)
+                  fontsize=14, fontweight='bold', pad=20)
     ax1.grid(True, alpha=0.3)
-    ax1.legend(loc='upper right', fontsize=9)
+    ax1.legend(loc='upper right', fontsize=10)
     
     # Add colorbar for time progression
     cbar = plt.colorbar(scatter, ax=ax1, shrink=0.8)
-    cbar.set_label('Migration Progress (Time)', fontsize=9, fontweight='bold')
+    cbar.set_label('Migration Progress (Time)', fontsize=10, fontweight='bold')
     
     # Panel 2: Latitude over Time (Migration Progress)
     ax2 = plt.subplot2grid((4, 4), (0, 2), colspan=2)
     
     ax2.plot(data['timestamp'], data['location-lat'], 
-             color=accent_color, linewidth=3, marker='o', markersize=3)
+             color=accent_color, linewidth=3, marker='o', markersize=4)
     ax2.fill_between(data['timestamp'], data['location-lat'], 
                      alpha=0.3, color=accent_color)
     
-    ax2.set_xlabel('Date', fontsize=11, fontweight='bold')
-    ax2.set_ylabel('Latitude (°N)', fontsize=11, fontweight='bold')
+    ax2.set_xlabel('Date', fontsize=12, fontweight='bold')
+    ax2.set_ylabel('Latitude (°N)', fontsize=12, fontweight='bold')
     ax2.set_title('📈 Southward Migration Progress\nFrom Arctic (70°N) to Tropics (5°N)', 
-                  fontsize=12, fontweight='bold', pad=15)
+                  fontsize=14, fontweight='bold', pad=20)
     ax2.grid(True, alpha=0.3)
-    ax2.tick_params(axis='x', rotation=45, labelsize=9)
+    ax2.tick_params(axis='x', rotation=45)
     
     # Panel 3: Monthly Migration Pattern
     ax3 = plt.subplot2grid((4, 4), (1, 2), colspan=2)
@@ -134,12 +134,11 @@ def create_enhanced_migration_dashboard(data):
                    color=plt.cm.viridis(np.linspace(0, 1, len(monthly_counts))),
                    edgecolor='white', linewidth=1)
     
-    ax3.set_xlabel('Month', fontsize=11, fontweight='bold')
-    ax3.set_ylabel('GPS Readings', fontsize=11, fontweight='bold')
+    ax3.set_xlabel('Month', fontsize=12, fontweight='bold')
+    ax3.set_ylabel('GPS Readings', fontsize=12, fontweight='bold')
     ax3.set_title('📅 Seasonal Migration Timing\nFall Migration Pattern', 
-                  fontsize=12, fontweight='bold', pad=15)
+                  fontsize=14, fontweight='bold', pad=20)
     ax3.grid(True, alpha=0.3, axis='y')
-    ax3.tick_params(labelsize=9)
     
     # Panel 4: Distance from Start Point
     ax4 = plt.subplot2grid((4, 4), (2, 0), colspan=2)
@@ -164,12 +163,12 @@ def create_enhanced_migration_dashboard(data):
              color='orange', linewidth=3, marker='o', markersize=3)
     ax4.fill_between(data['timestamp'], distances, alpha=0.3, color='orange')
     
-    ax4.set_xlabel('Date', fontsize=11, fontweight='bold')
-    ax4.set_ylabel('Distance from Start (km)', fontsize=11, fontweight='bold')
+    ax4.set_xlabel('Date', fontsize=12, fontweight='bold')
+    ax4.set_ylabel('Distance from Start (km)', fontsize=12, fontweight='bold')
     ax4.set_title('📏 Cumulative Migration Distance\nTotal Journey Progress', 
-                  fontsize=12, fontweight='bold', pad=15)
+                  fontsize=14, fontweight='bold', pad=20)
     ax4.grid(True, alpha=0.3)
-    ax4.tick_params(axis='x', rotation=45, labelsize=9)
+    ax4.tick_params(axis='x', rotation=45)
     
     # Panel 5: Migration Speed Analysis
     ax5 = plt.subplot2grid((4, 4), (2, 2), colspan=2)
@@ -193,13 +192,12 @@ def create_enhanced_migration_dashboard(data):
         ax5.axvline(np.mean(time_intervals), color='red', linestyle='--', linewidth=2, 
                    label=f'Mean: {np.mean(time_intervals):.1f} km/h')
         
-    ax5.set_xlabel('Migration Speed (km/h)', fontsize=11, fontweight='bold')
-    ax5.set_ylabel('Frequency', fontsize=11, fontweight='bold')
+    ax5.set_xlabel('Migration Speed (km/h)', fontsize=12, fontweight='bold')
+    ax5.set_ylabel('Frequency', fontsize=12, fontweight='bold')
     ax5.set_title('⚡ Migration Speed Distribution\nTravel Velocity Analysis', 
-                  fontsize=12, fontweight='bold', pad=15)
+                  fontsize=14, fontweight='bold', pad=20)
     ax5.grid(True, alpha=0.3)
-    ax5.legend(fontsize=9)
-    ax5.tick_params(labelsize=9)
+    ax5.legend()
     
     # Panel 6: Key Statistics Summary
     ax6 = plt.subplot2grid((4, 4), (3, 0), colspan=4)
@@ -211,37 +209,31 @@ def create_enhanced_migration_dashboard(data):
     avg_speed = np.mean(time_intervals) if time_intervals else 0
     lat_span = data['location-lat'].max() - data['location-lat'].min()
     
-    # Create statistics text with better formatting
-    stats_text = f"""🌟 MIGRATION SUMMARY STATISTICS 🌟
-
-📍 Journey: Arctic Alaska → South America
-🗓️ Duration: {total_days} days ({data['timestamp'].min().strftime('%b %d, %Y')} - {data['timestamp'].max().strftime('%b %d, %Y')})
-
-📏 Total Distance: {total_distance:,.0f} km
-📊 GPS Readings: {len(data)} data points
-🌐 Latitude Span: {lat_span:.1f}° (Arctic to Tropics)
-⚡ Average Speed: {avg_speed:.1f} km/h
-
-🐦 Species: Semipalmated Sandpiper (Calidris pusilla)
-🏷️ Individual: #{data.iloc[0]['individual-local-identifier']}"""
+    # Create statistics text
+    stats_text = f"""
+    🌟 MIGRATION SUMMARY STATISTICS 🌟
+    
+    📍 Journey: Arctic Alaska → South America          🗓️ Duration: {total_days} days ({data['timestamp'].min().strftime('%b %d, %Y')} - {data['timestamp'].max().strftime('%b %d, %Y')})
+    📏 Total Distance: {total_distance:,.0f} km         📊 GPS Readings: {len(data)} data points
+    🌐 Latitude Span: {lat_span:.1f}° (Arctic to Tropics)    ⚡ Average Speed: {avg_speed:.1f} km/h
+    🐦 Species: Semipalmated Sandpiper (Calidris pusilla)    🏷️ Individual: #{data.iloc[0]['individual-local-identifier']}
+    """
     
     # Add colorful background box
-    bbox = FancyBboxPatch((0.02, 0.15), 0.96, 0.7, boxstyle="round,pad=0.02", 
+    bbox = FancyBboxPatch((0.02, 0.1), 0.96, 0.8, boxstyle="round,pad=0.02", 
                          facecolor='lightblue', edgecolor='navy', alpha=0.3)
     ax6.add_patch(bbox)
     
-    ax6.text(0.5, 0.5, stats_text, transform=ax6.transAxes, fontsize=10, 
+    ax6.text(0.5, 0.5, stats_text, transform=ax6.transAxes, fontsize=12, 
              ha='center', va='center', fontweight='bold', 
-             bbox=dict(boxstyle="round,pad=0.3", facecolor='white', alpha=0.9),
-             linespacing=1.5)
+             bbox=dict(boxstyle="round,pad=0.5", facecolor='white', alpha=0.8))
     
-    plt.tight_layout(pad=3.0, h_pad=2.0, w_pad=2.0)
-    plt.subplots_adjust(top=0.90, bottom=0.08, left=0.08, right=0.95)
+    plt.tight_layout()
     
     # Save with timestamp
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = Path(f"figures/enhanced_migration_analysis_{timestamp}.png")
-    plt.savefig(filename, dpi=300, bbox_inches='tight', facecolor='white', pad_inches=0.2)
+    plt.savefig(filename, dpi=300, bbox_inches='tight', facecolor='white')
     print(f"📊 Enhanced visualization saved to: {filename}")
     
     plt.show()
@@ -250,9 +242,9 @@ def create_enhanced_migration_dashboard(data):
 def create_world_map_visualization(data):
     """Create a dedicated world map with migration route"""
     
-    fig, ax = plt.subplots(figsize=(18, 12))
+    fig, ax = plt.subplots(figsize=(16, 10))
     fig.suptitle('🌍 Global Shorebird Migration Route\nArctic Alaska to South America', 
-                 fontsize=16, fontweight='bold', y=0.95)
+                 fontsize=18, fontweight='bold', y=0.95)
     
     # Create simplified world background
     # Draw continents as basic shapes
@@ -302,38 +294,38 @@ def create_world_map_visualization(data):
     # Customize the map
     ax.set_xlim(-160, -30)
     ax.set_ylim(-10, 75)
-    ax.set_xlabel('Longitude (°W)', fontsize=12, fontweight='bold')
-    ax.set_ylabel('Latitude (°N)', fontsize=12, fontweight='bold')
+    ax.set_xlabel('Longitude (°W)', fontsize=14, fontweight='bold')
+    ax.set_ylabel('Latitude (°N)', fontsize=14, fontweight='bold')
     ax.set_title('Epic 6,000+ Mile Journey\nJuly 2017 - January 2018', 
-                 fontsize=14, fontweight='bold', pad=15)
+                 fontsize=16, fontweight='bold', pad=20)
     
     # Add grid and legend
     ax.grid(True, alpha=0.3, color='white', linewidth=1)
-    ax.legend(loc='upper left', fontsize=10, framealpha=0.9)
+    ax.legend(loc='upper left', fontsize=12, framealpha=0.9)
     
     # Add colorbar
     cbar = plt.colorbar(scatter, ax=ax, shrink=0.7, pad=0.02)
-    cbar.set_label('Migration Timeline\n(Summer → Winter)', fontsize=11, fontweight='bold')
+    cbar.set_label('Migration Timeline\n(Summer → Winter)', fontsize=12, fontweight='bold')
     
-    # Add annotations for key locations with better positioning
+    # Add annotations for key locations
     ax.annotate('Arctic Alaska\n(Breeding)', 
                 xy=(data.iloc[0]['location-long'], data.iloc[0]['location-lat']),
-                xytext=(-130, 55), fontsize=10, fontweight='bold',
+                xytext=(-130, 60), fontsize=11, fontweight='bold',
                 arrowprops=dict(arrowstyle='->', color='green', lw=2),
                 bbox=dict(boxstyle="round,pad=0.3", facecolor='lightgreen', alpha=0.8))
     
     ax.annotate('South America\n(Wintering)', 
                 xy=(data.iloc[-1]['location-long'], data.iloc[-1]['location-lat']),
-                xytext=(-75, -2), fontsize=10, fontweight='bold',
+                xytext=(-70, -5), fontsize=11, fontweight='bold',
                 arrowprops=dict(arrowstyle='->', color='red', lw=2),
                 bbox=dict(boxstyle="round,pad=0.3", facecolor='lightcoral', alpha=0.8))
     
-    plt.tight_layout(pad=2.0)
+    plt.tight_layout()
     
     # Save world map
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = Path(f"figures/world_migration_map_{timestamp}.png")
-    plt.savefig(filename, dpi=300, bbox_inches='tight', facecolor='white', pad_inches=0.2)
+    plt.savefig(filename, dpi=300, bbox_inches='tight', facecolor='white')
     print(f"🗺️ World map saved to: {filename}")
     
     plt.show()
