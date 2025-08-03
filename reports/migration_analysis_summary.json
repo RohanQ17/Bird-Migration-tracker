@@ -1,0 +1,42 @@
+{
+  "analysis_date": "2025-08-03 14:20:34",
+  "dataset_info": {
+    "total_records": 2090,
+    "species_count": 10,
+    "date_range": {
+      "start": "2020-01-05T00:00:00",
+      "end": "2023-12-31T00:00:00"
+    },
+    "total_birds_observed": 261627
+  },
+  "top_species": {
+    "Peregrine Falcon": 26396,
+    "American Robin": 26280,
+    "Osprey": 26264,
+    "Sandhill Crane": 26139,
+    "Ruby-throated Hummingbird": 26136
+  },
+  "seasonal_summary": {
+    "spring_total": 106148,
+    "fall_total": 104052,
+    "summer_total": 25709,
+    "winter_total": 25718
+  },
+  "busiest_routes": [
+    {
+      "route": "Greenland \u2192 Brazil",
+      "bird_count": 54620,
+      "distance_km": 9000
+    },
+    {
+      "route": "Alaska \u2192 Argentina",
+      "bird_count": 53855,
+      "distance_km": 17000
+    },
+    {
+      "route": "Northern US \u2192 Central America",
+      "bird_count": 52530,
+      "distance_km": 3000
+    }
+  ]
+}
