@@ -1,0 +1,47 @@
+# Analysis Configuration
+analysis:
+  random_state: 42
+  test_size: 0.2
+  cv_folds: 5
+  outlier_method: "iqr"
+  
+# Data Processing Configuration
+data_processing:
+  chunk_size: 10000
+  date_format: "%Y-%m-%d"
+  missing_value_threshold: 0.1
+  duplicate_handling: "drop"
+  
+# Visualization Configuration
+visualization:
+  default_figsize: [12, 8]
+  dpi: 300
+  color_palette: "husl"
+  style: "whitegrid"
+  
+# File Paths
+paths:
+  raw_data: "data/raw"
+  processed_data: "data/processed"
+  external_data: "data/external"
+  reports: "reports"
+  figures: "reports/figures"
+  
+# Database Configuration
+database:
+  type: "postgresql"
+  host: "localhost"
+  port: 5432
+  name: "migration_db"
+  
+# API Configuration
+api:
+  timeout: 30
+  max_retries: 3
+  rate_limit: 100  # requests per minute
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/migration_tracker.log"
